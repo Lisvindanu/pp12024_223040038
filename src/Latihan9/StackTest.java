@@ -11,6 +11,8 @@ public class StackTest {
         System.out.println("#Sebelum Push");
         stack.display();
         System.out.println();
+
+        StrukturStack stack1 = new StrukturStack(3);
         System.out.println("Sesudah Push");
         stack.push(2);
         stack.push(4);

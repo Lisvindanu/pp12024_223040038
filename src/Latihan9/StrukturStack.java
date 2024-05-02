@@ -28,7 +28,7 @@ public class StrukturStack {
     }
 
     public boolean isFull() {
-        if(TOP >= capacity) {
+        if(TOP >= capacity -1 ) {
             return true;
         } else  {
             return false;
@@ -55,8 +55,10 @@ public class StrukturStack {
         System.out.println("Size : " + size());
         System.out.println("Empty : " + isEmpty());
         System.out.println("Full : " + isFull());
-        if(!isEmpty()) {
-            System.out.println("Top : " + array[TOP]);
+        if(isEmpty()) {
+            System.out.println("TOP : "  + MIN);
+        } else {
+            System.out.println("TOP : " + array[TOP]);
         }
         System.out.println("Element From Top : ");
         int i = TOP;
