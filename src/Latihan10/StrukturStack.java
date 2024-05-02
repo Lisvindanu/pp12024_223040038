@@ -2,7 +2,7 @@
  * Author : Lisvindanu
  */
 
-package Latihan9;
+package Latihan10;
 
 public class StrukturStack {
 

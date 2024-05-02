@@ -2,7 +2,7 @@
  * Author : Lisvindanu
  */
 
-package Latihan9;
+package Latihan10;
 
 public class StackTest {
 
@@ -18,5 +18,21 @@ public class StackTest {
         stack.push(4);
         stack.push(1);
         stack.display();
+        System.out.println();
+
+
+        System.out.println("Pengujian pop");
+        stack.pop();
+        stack.display();
+        System.out.println();
+        stack.pop();
+        stack.display();
+        System.out.println();
+        stack.pop();
+        stack.display();
+        System.out.println();
+        stack.pop();
+        stack.display();
+
     }
 }

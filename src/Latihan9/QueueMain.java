@@ -2,7 +2,7 @@
  * Author : Lisvindanu
  */
 
-package Latihan8;
+package Latihan9;
 
 public class QueueMain {
     public static void main(String[] args) {

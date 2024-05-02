@@ -2,7 +2,7 @@
  * Author : Lisvindanu
  */
 
-package Latihan8;
+package Latihan9;
 
 public class StrukturQueue {
     Node head;

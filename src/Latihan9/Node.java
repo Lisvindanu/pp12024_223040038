@@ -2,7 +2,7 @@
  * Author : Lisvindanu
  */
 
-package Latihan8;
+package Latihan9;
 public class Node {
     private int data;
     private Node next;
