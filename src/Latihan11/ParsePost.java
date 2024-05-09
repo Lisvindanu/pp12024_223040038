@@ -5,44 +5,64 @@
 package Latihan11;
 
 public class ParsePost {
+
+    //mendeklarasikan variabel stack dan input dari tipe MyStack dan String
     private MyStack stack;
     public  String input;
 
+
+//membuat konstruktor yang menginisialisasi variabel input dengan nilai argumen input
     public ParsePost(String input) {
         super();
         this.input = input;
     }
 
+    //membuat method untuk melakukan parsing ekspresi postfix
     public int doParse() {
-        stack = new MyStack(20);
-        char ch;
+        stack = new MyStack(20); // membuat objek stak baru dengan kapasitas 20
+        // deklarasi variable char, i dan variable untuk menyimpan dua bilandan dan hasil operasi
+        char ch; // menampung nilai karakter yang akan digunakan sebagai operator
         int i;
         int bill1, bill2, hasilOps;
-        for (i = 0; i < input.length(); i++) {
-            ch = input.charAt(i);
-            stack.displayStack("" + ch + " ");
+        for (i = 0; i < input.length(); i++) { // loop untuk setiap karakter yang di input
+            ch = input.charAt(i); // mengambil karakter pada posisi i
+            stack.displayStack("" + ch + " "); // menampilkan stack saat ini
 
-            if (ch >= '0' && ch <= '9') {
+            if (ch >= '0' && ch <= '9') {// jika karakter yang di inputkan angka maka akan mengubah karakter menjadi angka dan memasukkannya kedalam stack
                 stack.push((int) (ch - '0'));
             } else {
-                bill2 = stack.pop();
-                bill1 = stack.pop();
+                //jika karakter = operator maka akan melakukan operasi berdasarkan operator dan melakukan operasi matematika sesuai dengan operator yang digunakan
                 switch (ch) {
-                    case '+': hasilOps = bill1 + bill2;
-                    break;
-                    case '-': hasilOps = bill2 - bill1;
-                    break;
-                    case '*': hasilOps = bill1 * bill2;
-                    break;
-                    case '/' : hasilOps = bill2 / bill1;
-                    break;
-                    default: hasilOps = 0;
+                    case '*':
+                    case '/':
+                        bill2 = stack.pop();
+                        bill1 = stack.pop();
+                        if(ch == '*') {
+                            hasilOps = bill1 * bill2;
+                        } else {
+                            hasilOps = bill1 / bill2;
+                        }
+                        stack.push(hasilOps); // memasukkan hasil operasi ke stack
+                        break;
+                    case '+':
+                    case '-':
+                        bill2 = stack.pop();
+                        bill1 = stack.pop();
+                        if (ch == '+') {
+                            hasilOps = bill1 + bill2;
+                        } else {
+                            hasilOps = bill1 - bill2;
+                        }
+                        stack.push(hasilOps);// memasukkan hasil operasi ke stack
+                        break;
+                    default:
+                        System.out.println("Invalid operator " + ch);
+                        return -1; // mengembalikan nilai -1 jika operator tidak valid
                 }
-                stack.push(hasilOps);
             }
         }
-        hasilOps =stack.pop();
-        return hasilOps;
+        hasilOps =stack.pop(); // mengambil hasil akhir operasi dari stack
+        return hasilOps; // mengembalikan hasil akhir operasi
     }
 
 }
